@@ -30,6 +30,8 @@ node{
             }
         }
     } 
+    
+    // we can see in console output in project a jar file will be created after package stage is completed
 stage('Package') {
  dir('') {
      withMaven(
