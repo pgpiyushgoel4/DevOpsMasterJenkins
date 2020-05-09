@@ -15,6 +15,7 @@ node{
  dir('') {
      withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
+        // We have installed the plugin to use with maven function see task 21 and dir is current directory as show in console output
         maven: 'M3') {
             sh 'mvn compile'
             }
