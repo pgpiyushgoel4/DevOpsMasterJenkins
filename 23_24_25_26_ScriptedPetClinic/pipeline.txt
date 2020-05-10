@@ -50,6 +50,8 @@ stage('Report') {
         maven: 'M3') {
             sh 'mvn verify'
             // we can get commands using pipeline syntax option under our project and select html plugin 
+            //not only publishHTML we can add email syntax also in order to email to others .
+            // we can use pipeline syntax for the same
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
             }
         }
