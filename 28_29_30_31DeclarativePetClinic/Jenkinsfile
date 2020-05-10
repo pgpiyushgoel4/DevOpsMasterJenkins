@@ -1,9 +1,11 @@
 pipeline{
     agent{label 'master'}
     tools{
+        //this m3 will be defined under global tool configuration
         maven 'm3'
     }
     stages{
+        //stage name can be anything just to make it standard we are using the name 
         stage('Checkout'){
             steps{
                 git 'https://github.com/AnjuMeleth/spring-petclinic.git'
@@ -17,6 +19,8 @@ pipeline{
         stage('Test'){
             steps{
                      sh 'mvn test'
+                
+                //this below code has been generated from the pipeline syntax option under our project.
                      junit '**/target/surefire-reports/TEST-*.xml'
             }
         }
