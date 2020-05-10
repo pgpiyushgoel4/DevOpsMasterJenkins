@@ -46,9 +46,10 @@ stage('Report') {
  dir('') {
      withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration
-        // we can get commands using pipeline syntax option under our project and select html plugin 
+        
         maven: 'M3') {
             sh 'mvn verify'
+            // we can get commands using pipeline syntax option under our project and select html plugin 
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
             }
         }
